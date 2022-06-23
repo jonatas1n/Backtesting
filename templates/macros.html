@@ -1,0 +1,88 @@
+{% macro field(parameter, title) %}
+    <div class="col-lg-6 col-md-6 col-sm-12 row align-items-center my-2 {{parameter}}">
+        <div class="col-12 align-items-center">
+            <input type="checkbox" name="use_{{parameter}}" id="use_{{parameter}}">
+            <label for="use_{{parameter}}"><h4>{{title}}</h4></label>
+        </div>
+        <div class="col-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="min" disabled name="{{parameter}}_minmax" id="{{parameter}}_min" />
+                <label for="{{parameter}}_min">Mínimo</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="max" disabled checked name="{{parameter}}_minmax" id="{{parameter}}_max" />
+                <label for="{{parameter}}_max">Máximo</label>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="form-group">
+                <label>{{title}}: </label>
+                <input class="form-control" disabled type="float" name="{{parameter}}" id="{{parameter}}" />
+            </div>
+        </div>
+    </div>
+    <script>
+        var {{parameter}}Use = document.querySelector("#use_{{parameter}}");
+        var {{parameter}}Value = document.querySelector("#{{parameter}}")
+
+        var localStorage{{parameter}} = localStorage.getItem('{{parameter}}')
+        localStorage{{parameter}} ??= ''
+        {{parameter}}Value.value = localStorage{{parameter}};
+
+        {{parameter}}Use.addEventListener("change", () => {            
+            if ({{parameter}}Use.checked) {
+                document.querySelector("#{{parameter}}").disabled = false;
+                document.querySelector("#{{parameter}}_min").disabled = false;
+                document.querySelector("#{{parameter}}_max").disabled = false;
+                document.querySelector("#{{parameter}}").required = true;
+                return
+            }
+            document.querySelector("#{{parameter}}").disabled = true;
+            document.querySelector("#{{parameter}}_min").disabled = true;
+            document.querySelector("#{{parameter}}_max").disabled = true;
+            document.querySelector("#{{parameter}}").required = false;
+        });
+
+        {{parameter}}Value.addEventListener("change", (e) => {
+            const {value} = e.target;
+            localStorage.setItem('{{parameter}}', value)
+        })
+
+    </script>
+{% endmacro %}
+
+{% macro file_field(name, title) %}
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card mb-2 rounded">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" required name="{{name}}" accept=".xml"/>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro check_field(name, label) %}
+    <div class="col-6 mb-3">
+        <div class="form-check">
+            <input id="{{name}}" class="form-check-input" type="checkbox" checked="true" value="true" name="{{name}}" />
+            <label for="{{name}}" class="form-check-label">{{label}}</label>
+        </div>
+    </div>
+
+    <script>
+        const {{name}}Input = document.getElementById('{{name}}')
+
+        var localStorage{{name}} = localStorage.getItem('{{name}}')
+        localStorage{{name}} ??= 'true'
+        {{name}}Input.checked = localStorage{{name}} == 'true'
+
+        {{name}}Input.addEventListener('change', (e) => {
+            const {checked} = e.target;
+            localStorage.setItem('{{name}}', checked)
+        })
+
+    </script>
+{% endmacro %}

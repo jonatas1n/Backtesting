@@ -1,0 +1,22 @@
+header {
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
+thead tr {
+  background: #343a40;
+  color: white;
+}
+td, th {
+  padding: 1rem;
+}
+
+h4 {
+  cursor: pointer;
+}
+
+#loading {
+  width: 40px;
+}
+
+.hide {
+  visibility: hidden;
+}
