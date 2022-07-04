@@ -1,6 +1,10 @@
-<hr>
-<h2 class="mb-3"><i class="fas fa-table fa-sm text-secondary"></i> Resultado</h2>
+<div class="title">
+    <img src="{{ url_for('static', filename='img/icons/table.svg') }}" alt="">
+    Resultado
+</div>
 {{table|safe}}
-<hr>
-<h3 class="mb-3 mt-4"><i class="fas fa-times fa-sm text-secondary"></i> Ativos que não passaram na filtragem</h3>
+<div class="title">
+    <img src="{{ url_for('static', filename='img/icons/times.svg') }}" alt="">
+    Ativos que não passaram na filtragem
+</div>
 {{fails|safe}}

@@ -1,0 +1,19 @@
+.card {
+    background: var(--background);
+    border-radius: .5rem;
+    padding: 1rem;
+    box-shadow: -0.25rem 0.25rem 0rem var(--light-purple);
+    display: grid;
+    grid-gap: 1.5rem;
+    transition: .25s;
+}
+
+.card-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.card:hover {
+    box-shadow: -0.25rem 0.25rem 0rem var(--purple);
+}

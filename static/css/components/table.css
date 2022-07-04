@@ -1,0 +1,44 @@
+th {
+    background: var(--dark-green);
+    color: white;
+}
+
+table {
+    border-color: var(--dark-green);
+}
+
+table *{
+    border: none;
+}
+
+tr.odd {
+    background: var(--background) !important;
+}
+
+tr:hover {
+    background: var(--light-purple) !important;
+}
+
+.dataTables_filter {
+    margin-bottom: 1rem;
+}
+
+.paginate_button {
+    border-radius: .5rem;
+    border: none;
+    color: var(--text-color);
+    padding: .5rem;
+    margin-left: 95%;
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    background: var(--dark-green) !important;
+    color: white !important;
+}
+
+.dataTables_paginate {
+    margin-bottom: 2rem;
+}

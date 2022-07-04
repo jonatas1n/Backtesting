@@ -1,4 +1,4 @@
-{% from "macros.html" import field, file_field, check_field with context %}
+{% from "macros.html" import field, file_field, check_field, select with context %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,55 +7,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backtesting</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/filters.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/cards.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/switch.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/table.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://malsup.github.io/jquery.form.js"></script> 
-    <script src="https://kit.fontawesome.com/636775e1e6.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="bg-dark text-white">
-        <div class="container d-flex align-items-center justify-content-between mb-3">
-            <h1 class="p-2">:backtesting:</h1>
-            <h6>Um serviço de automação para Wilson Junior</h6>
+    <header class="swipe-down">
+        <div class="container">
+            <div class="title">
+                backtesting
+            </div>
         </div>
     </header>
     <main class="container">
         <form action="/" id="form" method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <h2 class="col-12"><i class="fas fa-file fa-sm text-secondary"></i> Arquivos</h2>
-                {{ file_field('file_1', 'Arquivo de 1 ano') }}
-                {{ file_field('file_2', 'Arquivo de 2 anos') }}
-                {{ file_field('file_5', 'Arquivo de 5 anos') }}
-            </div>
-            <hr>
-            <div class="row mt-4 mb-3 align-items-center">
-                <h2 class="col-12"><i class="fas fa-sm fa-filter text-secondary"></i> Filtragem</h2>
-            </div>
-            <div class="row">
-                {{ check_field('crescente', 'Usar filtro de análise de lucro crescente') }}
-                {{ check_field('positivos', 'Checar se há lucros negativos') }}
-            </div>
-            <div class="row align-items-center justify-content-between">
-                {{ field('payoff', 'Payoff') }}
-                {{ field('fator_lucro', 'Fator de Lucro') }}
-            </div>
-            <div class="row align-items-center justify-content-between">
-                {{ field('fator_rec', 'Fator de Recuperação') }}
-                {{ field('sharpe', 'Índice Sharpe') }}
-            </div>
-            <div class="row align-items-center justify-content-between">
-                {{ field('rebaixamento', 'Porcentagem de Rebaixamento') }}
-            </div>
-            <button class="btn btn-dark btn-lg " type="submit" name="submit"><i class="fas fa-sm fa-search"></i> Analisar</button>
+            <section class="files">
+                <div class="title swipe-right">
+                    <img src="{{ url_for('static', filename='img/icons/files.svg') }}" alt="">
+                    Arquivos
+                </div>
+                <div class="files__list">
+                    {{ file_field('file_1', '1 ANO') }}
+                    {{ file_field('file_2', '2 ANOS') }}
+                    {{ file_field('file_5', '5 ANOS') }}
+                </div>
+            </section>
+            <section class="filters">
+                <div class="title swipe-right">
+                    <img src="{{ url_for('static', filename='img/icons/filter.svg') }}" alt="">
+                    Filtros
+                </div>
+                <div class="filter__checkboxes">
+                    {{ check_field('crescente', 'Usar filtro de análise de lucro crescente') }}
+                    {{ check_field('positivos', 'Checar se há lucros negativos') }}
+                </div>
+                <div class="filters__sections">
+                    <div class="filter__selection">
+                        {{ select('payoff', 'Payoff') }}
+                        {{ select('fator_lucro', 'Fator de Lucro') }}
+                        {{ select('fator_rec', 'Fator de Recuperação') }}
+                        {{ select('sharpe', 'Índice Sharpe') }}
+                        {{ select('rebaixamento', '% de Rebaixamento') }}
+                    </div>
+                    <div class="filter__cards">
+                        {{ field('payoff', 'Payoff') }}
+                        {{ field('fator_lucro', 'Fator de Lucro') }}
+                        {{ field('fator_rec', 'Fator de Recuperação') }}
+                        {{ field('sharpe', 'Índice Sharpe') }}
+                        {{ field('rebaixamento', '% de Rebaixamento') }}
+                    </div>
+                </div>
+            </section>
+            <button class="swipe-right" type="submit" name="submit">
+                <img src="{{ url_for('static', filename='img/icons/search.svg') }}" alt="">
+                Analisar
+            </button>
         </form>
 
-        <div id="form-response" class="mb-4"></div>
+        <div id="form-response"></div>
 
         <script>
             const formResponse = document.getElementById('form-response');
@@ -73,3 +94,4 @@
 
     </main>
 </html>
+

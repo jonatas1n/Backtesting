@@ -1,0 +1,59 @@
+.filter__checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.filter__checkbox {
+    background: var(--background);
+    border-radius: .5rem;
+    display: flex;
+    gap: .5rem;
+    padding-inline: .5rem;    
+    place-items: center;
+    font-size: 1.125rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    height: 3.375rem;
+    min-height: 3.375rem;
+    min-width: 10rem;
+    flex: 1;
+    transition: .25s;
+}
+
+.filter__checkbox:hover{
+    box-shadow: -0.25rem 0.25rem 0rem var(--purple);
+}
+
+.filters__sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.filter__minmax {
+    display: flex;
+    gap: .5rem;
+    place-items: center;
+}
+
+.filter__cards {
+    width: 100%;
+    display: grid;
+    flex: 3;
+    grid-gap: .75rem;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.filter__card {
+    height: 8.25rem;
+}
+
+.filter__selection {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    grid-gap: 1rem;
+    min-width: 10rem;
+}

@@ -37,9 +37,11 @@ def process_file():
 
     for field in fields:
         if 'use_' + field in request.form:
-            is_max = request.form[field + '_minmax'] == 'max'
+            is_max = field + '_minmax' in request.form
             value = clean_to_float(request.form[field])
             calc_fields[replace_fields[field]] = {'is_max': is_max, 'value': value}
+
+    print(calc_fields)
 
     crescente = 'crescente' in request.form
     lucros_positivos = 'lucros_positivos' in request.form
