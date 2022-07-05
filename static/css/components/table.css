@@ -1,15 +1,20 @@
 th {
-    background: var(--dark-green);
+    background: var(--text-color);
     color: white;
 }
 
 table {
-    border-color: var(--dark-green);
+    border-radius: .5rem;
+    box-shadow: -0.25rem 0.25rem 0rem var(--light-purple);
+    margin-bottom: 1rem !important;
 }
 
-table *{
+table, table * {
     border: none;
 }
+
+th:first-child {border-top-left-radius: .5rem;}
+th:last-child {border-top-right-radius: .5rem;}
 
 tr.odd {
     background: var(--background) !important;
@@ -34,7 +39,7 @@ tr:hover {
     transition: .25s;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+:is(#main-table_paginate, #fails-table_paginate) .paginate_button.current{
     background: var(--dark-green) !important;
     color: white !important;
 }
