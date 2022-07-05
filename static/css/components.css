@@ -3,8 +3,8 @@
     --dark-green: #6e857a;
     --primary: #309C4688;
     --background: #F4FAF6;
-    --light-purple: #F8F5FA;
-    --purple: #c6b9cf;
+    --light-purple: #c29bde30;
+    --purple: #c29bde;
 }
 
 section {margin-bottom: 2rem;}
@@ -18,6 +18,11 @@ section {margin-bottom: 2rem;}
     color: var(--text-color);
     margin-bottom: 1rem;
     transition: .25s;
+}
+
+.title::after {
+    content: '';
+    background: var(--purple);
 }
 
 .title:hover img {

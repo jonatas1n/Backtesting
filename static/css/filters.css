@@ -20,6 +20,7 @@
     min-width: 10rem;
     flex: 1;
     transition: .25s;
+    overflow: hidden;
 }
 
 .filter__checkbox:hover{
