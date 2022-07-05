@@ -25,10 +25,7 @@
         <input disabled type="float" placeholder="Valor" inputmode="numeric" name="{{parameter}}" id="{{parameter}}" />
         <div class="filter__minmax">
             <label for="{{parameter}}_minmax">Mínimo</label>
-            <label class="switch">
-                <input type="checkbox" name="{{parameter}}_minmax" id="{{parameter}}_minmax">
-                <span class="slider"></span>
-            </label>
+            {{ switch(parameter + '_minmax') }}
             <label for="{{parameter}}_minmax">Máximo</label>
         </div>
     </div>
@@ -65,7 +62,7 @@
 
 {% macro check_field(name, label) %}
     <label class="filter__checkbox swipe-left" <label for="{{name}}">
-        <input id="{{name}}" type="checkbox" checked="true" value="true" name="{{name}}" />
+        {{ switch(name) }}
         {{label}}
     </label>
 
@@ -82,4 +79,11 @@
         })
 
     </script>
+{% endmacro %}
+    
+{% macro switch(name) %}
+    <label class="switch">
+        <input type="checkbox" name="{{name}}" id="{{name}}">
+        <span class="slider"></span>
+    </label>
 {% endmacro %}
