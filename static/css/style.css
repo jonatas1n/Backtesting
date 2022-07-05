@@ -86,3 +86,14 @@ h4 {cursor: pointer;}
 #loading {width: 40px;}
 
 .hide {display: none !important;}
+
+@media screen and (max-width: 947px) {
+  .files__list {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .files__list .card {
+    flex: 1;
+  }
+}
