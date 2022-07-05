@@ -5,6 +5,12 @@
     margin-bottom: 1rem;
 }
 
+.filter__checkboxes .filter__checkbox {
+    height: unset;
+    min-height: 2.375rem;
+    padding-block: .5rem;
+}
+
 .filter__checkbox {
     background: var(--background);
     border-radius: .5rem;
