@@ -44,6 +44,6 @@ tr:hover {
     color: white !important;
 }
 
-.dataTables_paginate {
-    margin-bottom: 2rem;
-}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {background: var(--purple) !important;}
+
+.dataTables_paginate {margin-bottom: 2rem;}
