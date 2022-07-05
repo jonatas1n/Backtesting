@@ -23,7 +23,7 @@ header .title {
   color: white;
   display: flex;
   width: min-content;
-  padding: .5rem 1rem;
+  padding: .5rem 1.25rem;
   border-radius: .5rem;
   place-items: center;
   font-weight: bold;
@@ -57,6 +57,7 @@ input[type="float"] {
   width: calc(100% - 1rem);
   height: 1rem;
   border-radius: .5rem;
+  text-align: center;
 }
 
 label:not(.switch) input[type="checkbox"]::before {
@@ -93,7 +94,7 @@ h4 {cursor: pointer;}
     flex-direction: column;
   }
 
-  .files__list .card {
-    flex: 1;
-  }
+  .files__list .card {flex: 1;}
+
+  header .title {margin-inline: auto;}
 }

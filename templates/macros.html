@@ -22,7 +22,7 @@
 {% macro field(parameter, title) %}
     <div class="card {{parameter}} hide swipe-up filter__card">
         <div class="card-title">{{title}}</div>
-        <input disabled type="float" inputmode="numeric" name="{{parameter}}" id="{{parameter}}" />
+        <input disabled type="float" placeholder="Valor" inputmode="numeric" name="{{parameter}}" id="{{parameter}}" />
         <div class="filter__minmax">
             <label for="{{parameter}}_minmax">Mínimo</label>
             <label class="switch">
