@@ -21,6 +21,7 @@
     flex: 1;
     transition: .25s;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .filter__checkbox:hover{
