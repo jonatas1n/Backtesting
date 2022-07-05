@@ -34,14 +34,24 @@
     </div>
     <script>
         var {{parameter}}Value = document.querySelector("#{{parameter}}")
+        var {{parameter}}Minmax = document.querySelector("#{{parameter}}_minmax")
 
-        var localStorage{{parameter}} = localStorage.getItem('{{parameter}}')
-        localStorage{{parameter}} ??= ''
-        {{parameter}}Value.value = localStorage{{parameter}};
+        var localStorage{{parameter}}Value = localStorage.getItem('{{parameter}}')
+        localStorage{{parameter}}Value ??= ''
+        {{parameter}}Value.value = localStorage{{parameter}}Value;
+
+        var localStorage{{parameter}}Minmax = localStorage.getItem('{{parameter}}_minmax')
+        localStorage{{parameter}}Minmax ??= ''
+        {{parameter}}Minmax.checked = localStorage{{parameter}}Minmax;        
 
         {{parameter}}Value.addEventListener("change", (e) => {
             const {value} = e.target;
             localStorage.setItem('{{parameter}}', value)
+        })
+
+        {{parameter}}Minmax.addEventListener("change", (e) => {
+            const {checked} = e.target;
+            localStorage.setItem('{{parameter}}_minmax', checked)
         })
     </script>
 {% endmacro %}
