@@ -14,6 +14,10 @@
     animation: swipe-down 0.5s ease-in-out;
 }
 
+.exit-up {
+    animation: exit-up 0.5s ease-in-out;
+}
+
 @keyframes swipe-up {
     0% {
         transform: translateY(100%);
@@ -57,3 +61,14 @@
         transform: translateY(0);
     }
 }
+
+@keyframes exit-up {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+} 
