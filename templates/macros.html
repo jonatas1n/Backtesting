@@ -20,7 +20,7 @@
 {% endmacro %}
 
 {% macro field(parameter, title) %}
-    <div class="card {{parameter}} hide filter__card">
+    <div class="card {{parameter}} hide swipe-up filter__card">
         <div class="card-title">{{title}}</div>
         <input disabled type="float" name="{{parameter}}" id="{{parameter}}" />
         <div class="filter__minmax">
