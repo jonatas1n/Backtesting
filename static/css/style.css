@@ -59,7 +59,7 @@ input[type="float"] {
   border-radius: .5rem;
 }
 
-input[type="checkbox"]::before {
+label:not(.switch) input[type="checkbox"]::before {
   content: "";
   z-index: 1;
   display: block;
@@ -71,7 +71,7 @@ input[type="checkbox"]::before {
   transition: .75s ease-in-out;
 } 
 
-input[type="checkbox"]:checked::before {
+label:not(.switch) input[type="checkbox"]:checked::before {
   width: 90rem;
   height: 90rem;
   border-radius: .5rem;
