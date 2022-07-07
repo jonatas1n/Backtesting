@@ -25,13 +25,17 @@
     min-height: 3.375rem;
     min-width: 10rem;
     flex: 1;
-    transition: .25s;
+    transition: box-shadow .25s;
     overflow: hidden;
     cursor: pointer;
+    border: 2px solid #dbe4df;
 }
 
 .filter__checkbox:hover{
     box-shadow: -0.25rem 0.25rem 0rem var(--purple);
+    border-bottom: none;
+    border-left: none;
+    margin: 0 0 2px 2px;
 }
 
 .filters__sections {

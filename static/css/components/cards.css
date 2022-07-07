@@ -6,6 +6,9 @@
     display: grid;
     grid-gap: 1.5rem;
     transition: .25s;
+    border: 2px solid #dbe4df;
+    border-bottom: none;
+    border-left: none;
 }
 
 .card-title {
