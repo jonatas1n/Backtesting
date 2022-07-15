@@ -9,6 +9,11 @@
 
 section {margin-bottom: 2rem;}
 
+section:hover .title img {
+    transform: rotate(15deg);
+    width: 2.25rem;
+}
+
 .title {
     display: flex;
     place-items: center;
@@ -25,13 +30,9 @@ section {margin-bottom: 2rem;}
     background: var(--purple);
 }
 
-.title:hover img {
-    transform: rotate(15deg);
-}
-
 .title img {
     width: 2rem;
-    height: 2rem;
+    aspect-ratio: 1;
     transition: .25s;
 }
 
