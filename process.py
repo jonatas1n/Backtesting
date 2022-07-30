@@ -40,8 +40,9 @@ def get_importance(files, fields_parameters, use_ascending_profit=True, positive
 
     #Set filtering functions
     def profit_positive(periodo_1, periodo_2, periodo_3):
-        profit_1, profit_2, profit_3 = periodo_1['Profit'], periodo_2['Profit'], periodo_3['Profit']
-        return not positive_profit or (profit_1.values[0] > 0 and profit_2.values[0] > 0 and profit_3.values[0] > 0)
+        profits = periodo_1['Profit'], periodo_2['Profit'], periodo_3['Profit']
+        profits = [x.values[0] > 0 for x in profits]
+        return not positive_profit or all(profits)
 
     def profit_ascending(periodo_1, periodo_2, periodo_3):
         profit_1, profit_2, profit_3 = periodo_1['Profit'].values[0], periodo_2['Profit'].values[0], periodo_3['Profit'].values[0]

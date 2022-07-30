@@ -41,10 +41,10 @@ def process_file():
             value = clean_to_float(request.form[field])
             calc_fields[replace_fields[field]] = {'is_max': is_max, 'value': value}
 
-    print(calc_fields)
-
     crescente = 'crescente' in request.form
-    lucros_positivos = 'lucros_positivos' in request.form
+    lucros_positivos = 'positivos' in request.form
+
+    print(crescente, lucros_positivos)
 
     df, fails = get_importance(files, calc_fields, crescente, lucros_positivos)
     if len(df) == 0:
