@@ -79,19 +79,7 @@
 
         <div id="form-response"></div>
 
-        <script>
-            const formResponse = document.getElementById('form-response');
-            const loadingEl = document.getElementById('loading');
-            
-            $('#form').ajaxForm(function(result) {
-                formResponse.innerHTML = result;
-                $('#main-table').DataTable({
-                    order: [[7, 'desc']],
-                });
-                $('#fails-table').DataTable();
-                formResponse.scrollIntoView();
-            });
-        </script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     </main>
 </html>
