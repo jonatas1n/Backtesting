@@ -9,6 +9,11 @@ $('#form').ajaxForm(function(result) {
             "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
         }
     });
-    $('#fails-table').DataTable();
+
+    $('#fails-table').DataTable({
+        language: {
+            "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
+        }
+    });
     formResponse.scrollIntoView();
 });
