@@ -94,7 +94,6 @@ def get_importance(files, fields_parameters, use_ascending_profit=True, positive
         gaspar.drop(gaspar[gaspar['Symbol'] == key].index, inplace=True)
     gaspar = gaspar.reset_index().drop(columns=['index'])
 
-
     # Set importance calculations
     importance_order = ['Fator Lucro', 'Índice Sharpe', '% Reb', 'Fator Rec.', 'Payoff']
 
@@ -123,6 +122,9 @@ def get_importance(files, fields_parameters, use_ascending_profit=True, positive
     gaspar = pd.concat([gaspar, column_sum], axis=1)
     gaspar = gaspar.sort_values(by=[0], ascending=False)
     gaspar.rename(columns={0: 'Result'}, inplace=True)
+
+    new_columns = ['Código', 'Lucro', 'Payoff', 'Fator Lucro', 'Fator Rec.', 'Índice Sharpe', '% Reb.', 'Resultado']
+    gaspar.columns = new_columns
 
     fails = pd.DataFrame.from_dict(data=filtered, columns=['Symbol', "Motivos"], orient='index')
 

@@ -34,7 +34,6 @@ def process_file():
         return float(data)
 
     calc_fields = {}
-
     for field in fields:
         if 'use_' + field in request.form:
             is_max = field + '_minmax' in request.form
@@ -43,8 +42,6 @@ def process_file():
 
     crescente = 'crescente' in request.form
     lucros_positivos = 'positivos' in request.form
-
-    print(crescente, lucros_positivos)
 
     df, fails = get_importance(files, calc_fields, crescente, lucros_positivos)
     if len(df) == 0:
